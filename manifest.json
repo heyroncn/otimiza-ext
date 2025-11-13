@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "name": "Sicredi Otimiza Keep Alive + Alerta de Fila (2–5 min) by Heyron",
+  "version": "2.0.0",
+  "description": "Mantém a sessão viva (2–5 min aleatório), registra no console cada ping e alerta com som/notificação quando a fila aumenta. Pisca 1s alternando vermelho/verde com som a cada 15s enquanto fila>0 em /pendente/23. Criado por Heyron Carneiro - B.I.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png",
+    "256": "icons/icon256.png"
+  },
+  "permissions": [
+    "notifications",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://0730.otimiza.sicredi.net/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://0730.otimiza.sicredi.net/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "styles.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "Sicredi Otimiza Keep Alive + Alerta de Fila"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "injected.js",
+        "assets/*",
+        "icons/*"
+      ],
+      "matches": [
+        "https://0730.otimiza.sicredi.net/*"
+      ]
+    }
+  ]
+}

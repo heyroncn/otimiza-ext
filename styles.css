@@ -1,0 +1,182 @@
+/* Painel vermelho padrão (para mensagens avulsas, se usado) */
+#otz-ext-alert-panel {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #dc2626;
+    color: #fff;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 10px;
+    margin: 8px 0;
+    display: none;
+}
+#otz-ext-alert-panel .ext-text { margin-left: 8px; }
+
+/* Wrapper posicionado logo após <app-topbar> */
+#otz-ext-stratus {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* centraliza horizontalmente */
+    padding: 0;
+    margin: 0 auto;
+}
+
+/* Painel principal: visual e alinhamento */
+#otz-ext-status {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 10px 14px;
+    color: #0f172a;
+    box-shadow: 0 6px 18px rgba(2,6,23,.06);
+    width: 100%;
+    max-width: 400px; /* MUITO mais compacto */
+    margin: 16px auto; /* centraliza */
+    display: flex;
+    flex-direction: column; /* empilha conteúdo */
+    align-items: center; /* centraliza internamente */
+    box-sizing: border-box;
+}
+
+/* Grid interno: agora tudo em uma coluna */
+#otz-ext-status .grid {
+    display: grid;
+    grid-template-columns: 1fr; /* força uma coluna */
+    gap: 8px;
+    align-items: center;
+    justify-items: center; /* centraliza itens */
+}
+
+#otz-ext-status .single { display: block; }
+
+/* Themeable current box */
+#otz-ext-status .current {
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+}
+#otz-ext-status .current h4 {
+    margin: 0 0 6px 0;
+    font-size: 13px;
+    letter-spacing: .02em;
+}
+#otz-ext-status .current .count {
+    display: inline-block;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 1;
+}
+#otz-ext-status .eta {
+    margin-top: 4px;
+    font-size: 12px;
+    color: #0ea5e9;
+}
+
+/* Verde quando fila=0 */
+#otz-ext-status .current.ok {
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+}
+#otz-ext-status .current.ok h4 { color: #065f46; }
+#otz-ext-status .current.ok .count { color: #065f46; }
+
+/* Vermelho quando fila>0 */
+#otz-ext-status .current.alert {
+    background: #fee2e2;
+    border: 1px solid #fecaca;
+}
+#otz-ext-status .current.alert h4 { color: #b91c1c; }
+#otz-ext-status .current.alert .count { color: #b91c1c; }
+
+/* Histórico */
+#otz-ext-status .history {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+}
+#otz-ext-status .history h4 {
+    margin: 0 0 6px 0;
+    font-size: 13px;
+    color: #334155;
+}
+#otz-ext-status .history ul {
+    margin: 0;
+    padding-left: 18px;
+    max-height: 180px;
+    overflow: auto;
+}
+#otz-ext-status .history li {
+    margin: 4px 0;
+    font-size: 13px;
+    color: #1f2937;
+}
+
+/* Overlay do chat */
+#otz-ext-blink {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2147483647;
+    color: #fff;
+    pointer-events: none;
+}
+#otz-ext-blink[data-color='red'] { background: rgba(220,38,38,.92); }
+#otz-ext-blink[data-color='green'] { background: rgba(5,150,105,.92); }
+#otz-ext-blink .blink-inner {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: .02em;
+    text-shadow: 0 2px 8px rgba(0,0,0,.25);
+}
+@media (max-width: 640px) {
+    #otz-ext-blink .blink-inner { font-size: 22px; }
+}
+
+/* Toast fixo */
+#otz-ext-toast {
+    position: fixed !important;
+    right: 24px !important;
+    bottom: 24px !important;
+    z-index: 2147483650 !important;
+    pointer-events: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    width: auto;
+    max-width: 28vw;
+    height: auto;
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+    mix-blend-mode: normal;
+    display: none;
+}
+.otz-fade-in { animation: otzToastFadeIn .28s ease forwards; }
+.otz-fade-out { animation: otzToastFadeOut .32s ease forwards; }
+@keyframes otzToastFadeIn {
+    from { opacity: 0; transform: translateY(8px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes otzToastFadeOut {
+    from { opacity: 1; transform: translateY(0) scale(1); }
+    to { opacity: 0; transform: translateY(8px) scale(0.98); }
+}
+
+/* Responsividade */
+@media (max-width: 500px) {
+    #otz-ext-status {
+        max-width: 95%;
+        padding: 8px;
+    }
+}
