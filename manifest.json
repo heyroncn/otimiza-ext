@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Sicredi Otimiza Keep Alive + Alerta de Fila (2–5 min) by Heyron",
+  "name": "Sicredi Otimiza Keep Alive + Alerta de Fila (2–5 min)",
   "version": "2.0.0",
   "description": "Mantém a sessão viva (2–5 min aleatório), registra no console cada ping e alerta com som/notificação quando a fila aumenta. Pisca 1s alternando vermelho/verde com som a cada 15s enquanto fila>0 em /pendente/23. Criado por Heyron Carneiro - B.I.",
   "icons": {
