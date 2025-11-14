@@ -4,19 +4,19 @@ Criado por Heyron Carneiro - B.I.
 
 Versão (2.0.0)
 
-- Resolvido problema de sobreposição de som de notificação (NOVO)
+- Resolvido problema de sobreposição de som de notificação.
 
 Versão (1.9.0)
 
-- Compativel com EDGE (NOVO)
+- Compativel com EDGE.
 
 Versão (1.7.9)
 
-- Pisca 1s alternando vermelho/verde com som a cada 15s enquanto fila>0 em /pendente/23. (NOVO)
+- Pisca 1s alternando vermelho/verde com som a cada 15s enquanto fila>0 em /pendente/23.
 
 Versão (1.5.0)
 
-- Alerta com som/notificação quando a fila aumenta em /pendente/23. (NOVO). 
+- Alerta com som/notificação quando a fila aumenta em /pendente/23.
 
 Versão (1.0.0)
 
