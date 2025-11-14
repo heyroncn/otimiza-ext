@@ -1,5 +1,5 @@
 # Sicredi Otimiza Keep Alive + Alerta de Fila (2–5 min)
-Criado por Heyron Carneiro - B.I.
+
 
 
 Versão (2.0.0)
